@@ -13,7 +13,7 @@
     </th>
   </tr>
   <% @authors.each do |author| %>
-    <tr>
+    <tr id= <%= "author" + String(author.id) %> >
       <td>
         <%= link_to author.name, author %>
       </td>
@@ -22,6 +22,7 @@
       </td>
       <td>
         <%= link_to "Edit", edit_author_path(author.id) %>
+        <%= link_to "Delete", author_path(author), method: :delete %>
       </td>
     </tr>
   <% end %>
