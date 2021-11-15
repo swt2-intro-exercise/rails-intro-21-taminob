@@ -21,4 +21,9 @@ RSpec.describe "papers/edit", type: :view do
       assert_select "input[name=?]", "paper[year]"
     end
   end
+
+  it "renders multiple select element for authors selection" do
+    render
+    expect(rendered).to have_select("paper[author_ids][]", multiple: true)
+  end
 end
