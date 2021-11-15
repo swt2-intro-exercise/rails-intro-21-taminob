@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Author, type: :model do
   before(:each) do
 #  before(:all)
@@ -26,6 +24,6 @@ RSpec.describe Author, type: :model do
   end
 
   it "should concatenate first_name and last_name when calling name" do
-    expect(@author.name).to eq(helper.concat_strings(@first_name, @last_name))
+    expect(@author.name).to eq(@first_name + ' ' + @last_name)
   end
 end
