@@ -32,5 +32,17 @@ describe "Authors index page", type: :feature do
   it "should contain edit link" do
     expect(page).to have_link("Edit", href: edit_author_path(@author.id))
   end
+
+  it "should contain delete link" do
+    expect(page).to have_link("Delete", href: author_path(@author.id))
+  end
+
+  it "should destroy author when clicking on delete link" do
+    prev_count = Author.count
+    within "#author" + String(@author.id) do
+      click_link("Delete")
+    end
+    expect(Author.count).to eq(prev_count - 1)
+  end
 end
 
