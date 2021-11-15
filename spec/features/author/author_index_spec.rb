@@ -26,7 +26,11 @@ describe "Authors index page", type: :feature do
   end
 
   it "should contain link to new author page" do
-    expect(page).to have_link 'New', href: new_author_path
+    expect(page).to have_link("New", href: new_author_path)
+  end
+
+  it "should contain edit link" do
+    expect(page).to have_link("Edit", href: edit_author_path(@author.id))
   end
 end
 
