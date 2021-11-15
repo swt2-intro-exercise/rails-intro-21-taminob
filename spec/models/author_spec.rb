@@ -26,4 +26,9 @@ RSpec.describe Author, type: :model do
   it "should concatenate first_name and last_name when calling name" do
     expect(@author.name).to eq(@first_name + ' ' + @last_name)
   end
+
+  it "should only be valid if last_name is set" do
+    @author.last_name = ""
+    expect(@author).to_not be_valid
+  end
 end
