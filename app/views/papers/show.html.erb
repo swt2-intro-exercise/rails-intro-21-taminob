@@ -17,8 +17,14 @@
 
 <% if !@paper.authors.empty? %>
 <p id="authors">
-  <strong>Author(s):</strong>
-  <%= @paper.authors %>
+<strong>Author(s):</strong>
+  <ul>
+    <%= @paper.authors.each do |author| %>
+      <li>
+        author.name
+      </li>
+    <% end %>
+  </ul>
 </p>
 <% end %>
 
