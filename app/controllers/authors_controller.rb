@@ -22,10 +22,10 @@ class AuthorsController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
+    @author = Author.find(params[:id])
 
-    if @article.update(article_params)
-      redirect_to @article
+    if @author.update(author_params)
+      redirect_to @author
     else
       render :edit
     end
