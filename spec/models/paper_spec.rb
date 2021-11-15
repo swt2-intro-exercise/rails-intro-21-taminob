@@ -28,4 +28,8 @@ RSpec.describe Paper, type: :model do
     @paper.year = "x"
     expect(@paper).to be_invalid
   end
+
+  it "should contain an empty list of authors" do
+    expect(@paper.authors).to match_array([])
+  end
 end
