@@ -15,4 +15,16 @@ RSpec.describe "papers/show", type: :view do
     expect(rendered).to match(/Venue/)
     expect(rendered).to match(/2/)
   end
+
+  it "should not contain authors if there are none" do
+    @paper.authors.clear
+    render
+    expect(rendered).not_to have_css("#authors")
+  end
+
+  it "should contain authors" do
+    @paper.authors = [create(:author)]
+    render
+    expect(rendered).to have_css("#authors")
+  end
 end

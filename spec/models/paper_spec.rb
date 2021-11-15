@@ -29,7 +29,9 @@ RSpec.describe Paper, type: :model do
     expect(@paper).to be_invalid
   end
 
-  it "should contain an empty list of authors" do
-    expect(@paper.authors).to match_array([])
+  it "should contain an list of authors" do
+    @paper.authors.each do |author|
+      expect(author).to be_an_instance_of(Author)
+    end
   end
 end
