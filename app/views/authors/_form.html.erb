@@ -1,0 +1,26 @@
+<%= form_with scope: :author, url: authors_path, local: true do |form| %>
+  <% @author.errors.full_messages.each do |error| %>
+    <div class="error">
+      error: <%= error %>
+    </div>
+  <% end %>
+  <p>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= form.label :last_name %><br>
+    <%= form.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= form.label :homepage %><br>
+    <%= form.text_area :homepage %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
