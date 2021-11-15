@@ -34,4 +34,10 @@ RSpec.describe Paper, type: :model do
       expect(author).to be_an_instance_of(Author)
     end
   end
+
+  it "should have and belong to many authors" do
+    relation = Paper.reflect_on_association(:authors)
+    expect(relation.macro).to eq(:has_and_belongs_to_many)
+  end
+
 end

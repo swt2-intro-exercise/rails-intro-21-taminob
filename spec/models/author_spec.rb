@@ -31,4 +31,9 @@ RSpec.describe Author, type: :model do
     @author.last_name = ""
     expect(@author).to_not be_valid
   end
+
+  it "should have and belong to many papers" do
+    relation = Author.reflect_on_association(:papers)
+    expect(relation.macro).to eq(:has_and_belongs_to_many)
+  end
 end
