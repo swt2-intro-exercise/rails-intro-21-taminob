@@ -1,4 +1,9 @@
 <%= form_with scope: :author, url: authors_path, local: true do |form| %>
+  <% @author.errors.full_messages.each do |error| %>
+    <div class="error">
+      <%= error %>
+    </div>
+  <% end %>
   <p>
     <%= form.label :first_name %><br>
     <%= form.text_field :first_name %>
